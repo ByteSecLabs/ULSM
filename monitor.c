@@ -146,7 +146,7 @@ int  connect(int  sockfd,  const  struct sockaddr *serv_addr, socklen_t addrlen)
 		ok=0;
 
 		if((fp = fopen(log_file, "a+"))) {
-			fprintf(fp, "{\"ts\": %ld, \"event_type\": \"Network Connection\", \"pid: %i\", \"ip\": %d.%d.%d.%d, \"port\": %d}\n", seconds, getpid(), (int)(*c),(int)(*(c+1)),(int)(*(c+2)),(int)(*(c+3)), port);
+			fprintf(fp, "{\"ts\": %ld, \"event_type\": \"Network Connection\", \"pid\": %i, \"ip\": %d.%d.%d.%d, \"port\": %d}\n", seconds, getpid(), (int)(*c),(int)(*(c+1)),(int)(*(c+2)),(int)(*(c+3)), port);
 			fclose(fp);
 		}
 	}
