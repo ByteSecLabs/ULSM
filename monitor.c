@@ -70,7 +70,7 @@ int open (const char *pathname, int flags, ...){
 	va_end (args);
 
 	// Don't hook logger process
-	if (strcmp (pathname, log_file)){
+	if (!strcmp (pathname, log_file)){
 		fd = func_open (pathname, flags, mode);
         	if((fp = fopen(log_file, "a+"))) {
 			fprintf(fp, "{\"ts\": %ld, \"event_type\": \"File Access\", \"path: %s\", \"mode\": %i, \"pid: %i\"}\n", seconds, pathname, flags, getpid());
